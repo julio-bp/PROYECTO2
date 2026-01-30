@@ -56,6 +56,19 @@ END,
 indice_vivienda DESC;
 
 
+-- Hacemos un top 3
+
+SELECT
+estados,
+ROUND(porcentaje_educacion_superior, 2) AS porcentaje_educacion_superior,
+ROUND(indice_vivienda, 2) AS indice_vivienda
+FROM h1_educacion_vivienda
+WHERE porcentaje_educacion_superior >= 25
+ORDER BY 
+indice_vivienda DESC
+LIMIT 3;
+
+
 
 
 -- HIPÓTESIS 2
@@ -102,3 +115,15 @@ CASE
 	ELSE 3
 END,
 indice_hacinamiento DESC;
+
+-- Hacemos un top 3
+
+SELECT
+estados,
+ROUND(densidad_poblacion, 2) AS densidad_poblacion,
+ROUND(indice_hacinamiento, 2) AS indice_hacinamiento
+FROM h2_densidad_hacinamiento
+WHERE densidad_poblacion < 100
+ORDER BY 
+indice_hacinamiento DESC
+LIMIT 3;
